@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meals Menu | Savory Delights</title>
+    <!-- JQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="home.html" class="logo">Savory <span>Delights</span></a>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Meals.html" class="active">Meals</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <h1 class="page-title">Culinary Menu</h1>
+        <p class="page-subtitle">Select your favorite meals from the options below and click continue to submit your order.</p>
+
+        <!-- Meals Menu Table -->
+        <div class="table-responsive">
+            <table class="meals-table" id="meals-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Meal Name</th>
+                        <th>Price</th>
+                        <th>Details</th>
+                        <th>Select</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Meal 1 -->
+                    <tr class="meal-row">
+                        <td>SF-001</td>
+                        <td>Grilled Salmon</td>
+                        <td data-price="24.50">$24.50</td>
+                        <td>
+                            <button class="toggle-details-btn" data-id="sf001">Show Details</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="select-checkbox" data-id="sf001">
+                        </td>
+                    </tr>
+                    <tr class="meal-details-row" id="details-sf001" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-details-container">
+                                <img src="images/meal1.png" alt="Grilled Salmon" class="meal-details-image">
+                                <div class="meal-details-info">
+                                    <h4>Signature Mediterranean Salmon</h4>
+                                    <div class="meal-details-meta"><strong>Cuisine:</strong> Mediterranean | <strong>Category:</strong> Seafood</div>
+                                    <div class="meal-details-ingredients"><strong>Ingredients:</strong> Fresh salmon fillets, virgin olive oil, fresh lemon juice, dill, minced garlic, cracked black pepper.</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Meal 2 -->
+                    <tr class="meal-row">
+                        <td>SF-002</td>
+                        <td>Traditional Mansaf</td>
+                        <td data-price="32.00">$32.00</td>
+                        <td>
+                            <button class="toggle-details-btn" data-id="sf002">Show Details</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="select-checkbox" data-id="sf002">
+                        </td>
+                    </tr>
+                    <tr class="meal-details-row" id="details-sf002" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-details-container">
+                                <img src="images/meal2.png" alt="Mansaf" class="meal-details-image">
+                                <div class="meal-details-info">
+                                    <h4>Authentic Levantine Mansaf</h4>
+                                    <div class="meal-details-meta"><strong>Cuisine:</strong> Levantine | <strong>Category:</strong> Main Dish</div>
+                                    <div class="meal-details-ingredients"><strong>Ingredients:</strong> Prime lamb cuts, dried fermented yogurt (Jameed), long-grain turmeric rice, toasted almonds, pine nuts, flatbread.</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Meal 3 -->
+                    <tr class="meal-row">
+                        <td>SF-003</td>
+                        <td>Molokhia with Chicken</td>
+                        <td data-price="18.50">$18.50</td>
+                        <td>
+                            <button class="toggle-details-btn" data-id="sf003">Show Details</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="select-checkbox" data-id="sf003">
+                        </td>
+                    </tr>
+                    <tr class="meal-details-row" id="details-sf003" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-details-container">
+                                <img src="images/meal3.png" alt="Molokhia" class="meal-details-image">
+                                <div class="meal-details-info">
+                                    <h4>Rich Molokhia Broth</h4>
+                                    <div class="meal-details-meta"><strong>Cuisine:</strong> Levantine / Egyptian | <strong>Category:</strong> Main Dish</div>
+                                    <div class="meal-details-ingredients"><strong>Ingredients:</strong> Jute leaves, aromatic chicken broth, cilantro, roasted garlic, tender chicken breast, toasted pita.</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Meal 4 -->
+                    <tr class="meal-row">
+                        <td>SF-004</td>
+                        <td>Fattoush Salad</td>
+                        <td data-price="12.00">$12.00</td>
+                        <td>
+                            <button class="toggle-details-btn" data-id="sf004">Show Details</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="select-checkbox" data-id="sf004">
+                        </td>
+                    </tr>
+                    <tr class="meal-details-row" id="details-sf004" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-details-container">
+                                <img src="images/meal4.png" alt="Fattoush" class="meal-details-image">
+                                <div class="meal-details-info">
+                                    <h4>Healthy Fattoush Salad</h4>
+                                    <div class="meal-details-meta"><strong>Cuisine:</strong> Levantine | <strong>Category:</strong> Appetizer</div>
+                                    <div class="meal-details-ingredients"><strong>Ingredients:</strong> Fresh mixed greens, diced tomatoes, radishes, crisp cucumbers, toasted pita croutons, sumac, pomegranate molasses.</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Meal 5 -->
+                    <tr class="meal-row">
+                        <td>SF-005</td>
+                        <td>Baklava Platter</td>
+                        <td data-price="15.00">$15.00</td>
+                        <td>
+                            <button class="toggle-details-btn" data-id="sf005">Show Details</button>
+                        </td>
+                        <td>
+                            <input type="checkbox" class="select-checkbox" data-id="sf005">
+                        </td>
+                    </tr>
+                    <tr class="meal-details-row" id="details-sf005" style="display: none;">
+                        <td colspan="5">
+                            <div class="meal-details-container">
+                                <img src="images/meal5.png" alt="Baklava" class="meal-details-image">
+                                <div class="meal-details-info">
+                                    <h4>Sweet Baklava Delight</h4>
+                                    <div class="meal-details-meta"><strong>Cuisine:</strong> Levantine / Turkish | <strong>Category:</strong> Dessert</div>
+                                    <div class="meal-details-ingredients"><strong>Ingredients:</strong> Multi-layered phyllo dough, finely ground roasted pistachios, pure honey, light rosewater syrup.</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Continue Button to load Form -->
+        <div style="text-align: right; margin-bottom: 2rem;">
+            <button class="btn" id="continue-btn" disabled>Continue Order</button>
+        </div>
+
+        <!-- Order Form Section (Initially Hidden via CSS inline / fade in via jQuery) -->
+        <div id="order-form-section" class="form-section" style="display: none;">
+            <h2 style="color: var(--primary-color); font-size: 1.8rem; margin-bottom: 0.5rem;">Submit Your Order Details</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; font-weight: 300;">Fill out the form below. Note that the <strong>National ID</strong> is the only mandatory field.</p>
+            
+            <form id="order-form" novalidate>
+                <div class="form-grid">
+                    <!-- Arabic Full Name -->
+                    <div class="form-group">
+                        <label for="full-name">Full Name (Arabic letters only)</label>
+                        <input type="text" id="full-name" placeholder="مثال: أحمد منصور">
+                        <span class="error-msg" id="full-name-error"></span>
+                    </div>
+
+                    <!-- National ID -->
+                    <div class="form-group">
+                        <label for="national-id">National ID (11 digits, Mandatory)</label>
+                        <input type="text" id="national-id" placeholder="Example: 01011112222" maxlength="11">
+                        <span class="error-msg" id="national-id-error"></span>
+                    </div>
+
+                    <!-- Date of Birth -->
+                    <div class="form-group">
+                        <label for="dob">Date of Birth (dd-mm-yyyy)</label>
+                        <input type="text" id="dob" placeholder="Example: 25-12-1995">
+                        <span class="error-msg" id="dob-error"></span>
+                    </div>
+
+                    <!-- Mobile Number -->
+                    <div class="form-group">
+                        <label for="mobile">Mobile Number (Syriatel / MTN)</label>
+                        <input type="text" id="mobile" placeholder="Example: 0931234567" maxlength="10">
+                        <span class="error-msg" id="mobile-error"></span>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Example: your-name@email.com">
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2.5rem;">
+                    <button type="submit" class="btn" style="padding: 0.85rem 3rem;">Send Order</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- Final Order Summary Overlay/Modal -->
+    <div id="summary-overlay" class="summary-overlay">
+        <div class="summary-modal">
+            <div class="summary-header">
+                <h3>Order Summary Confirmation</h3>
+                <p>Your order details and final balance</p>
+            </div>
+            
+            <div class="summary-content" id="summary-items-container">
+                <!-- Injected via jQuery dynamically -->
+            </div>
+
+            <div class="summary-footer">
+                <button class="btn" id="close-summary-btn">Close Summary</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Area -->
+    <footer>
+        <p>&copy; 2026 Savory Delights. All Rights Reserved. Course: Web Application Design and Development.</p>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="myFunctions.js"></script>
+</body>
+</html>

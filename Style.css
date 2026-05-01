@@ -1,0 +1,512 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #0d0d0d;
+    --surface-color: #1a1a1a;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --primary-color: #e2b03e;
+    --primary-hover: #fcd56c;
+    --text-main: #fcfcfc;
+    --text-muted: #9e9e9e;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --font-english: 'Outfit', sans-serif;
+    --font-arabic: 'Cairo', sans-serif;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-english);
+    line-height: 1.6;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ensure Arabic texts use Cairo font */
+[lang="ar"], .arabic-text {
+    font-family: var(--font-arabic);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Header & Navigation */
+header {
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-muted);
+    transition: var(--transition);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* Page Containers */
+main {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.page-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    color: var(--text-main);
+}
+
+.page-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+    background: rgba(13, 13, 13, 0.5);
+}
+
+/* Buttons Styling */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #121212;
+    padding: 0.75rem 1.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn:disabled {
+    background-color: var(--text-muted);
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Cards & Modern Layouts */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    border-color: rgba(226, 176, 62, 0.3);
+    box-shadow: var(--shadow-md);
+}
+
+/* Tables in Meals Page */
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.meals-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: var(--surface-color);
+}
+
+.meals-table th,
+.meals-table td {
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meals-table th {
+    background-color: #1f1f1f;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+}
+
+.meals-table tr {
+    transition: var(--transition);
+}
+
+.meals-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.meal-row.expanded {
+    background-color: rgba(226, 176, 62, 0.03);
+}
+
+/* Show details toggle button styling */
+.toggle-details-btn {
+    background: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.4rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.toggle-details-btn:hover {
+    background: var(--primary-color);
+    color: #121212;
+}
+
+/* Meal Details Subsection */
+.meal-details-row {
+    background-color: rgba(255, 255, 255, 0.015);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.meal-details-container {
+    padding: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.meal-details-image {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.meal-details-info {
+    flex: 1;
+}
+
+.meal-details-info h4 {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+}
+
+.meal-details-meta {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.meal-details-ingredients {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Checkboxes & Form Fields */
+.select-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+/* Inputs & Form Styling in Meals Page */
+.form-section {
+    margin-top: 3.5rem;
+    padding: 3rem;
+    background: rgba(26, 26, 26, 0.6);
+    border: 1px solid rgba(226, 176, 62, 0.2);
+    border-radius: 12px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.form-group input {
+    background-color: #121212;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 0.85rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: inherit;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-color);
+    background-color: rgba(226, 176, 62, 0.05);
+    box-shadow: 0 0 0 2px rgba(226, 176, 62, 0.2);
+}
+
+.form-group .error-msg {
+    font-size: 0.85rem;
+    color: var(--danger-color);
+    margin-top: 0.2rem;
+    display: none;
+}
+
+.form-group.has-error input {
+    border-color: var(--danger-color);
+}
+
+.form-group.has-error .error-msg {
+    display: block;
+}
+
+/* Modern Overlay Summary Modal */
+.summary-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 13, 13, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.summary-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.summary-modal {
+    background: var(--surface-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 16px;
+    padding: 3rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-md);
+    transform: scale(0.95);
+    transition: var(--transition);
+}
+
+.summary-overlay.active .summary-modal {
+    transform: scale(1);
+}
+
+.summary-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.summary-header h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 0.3rem;
+}
+
+.summary-header p {
+    color: var(--text-muted);
+}
+
+.summary-content {
+    margin-bottom: 2rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.summary-item.total {
+    border-top: 2px solid var(--primary-color);
+    border-bottom: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 1rem;
+}
+
+.summary-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+/* Info and Students on Home Page */
+.student-section {
+    margin-bottom: 4rem;
+}
+
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.student-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: var(--transition);
+}
+
+.student-card:hover {
+    border-color: rgba(226, 176, 62, 0.4);
+    transform: translateY(-3px);
+}
+
+.student-card h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 0.4rem;
+}
+
+.student-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* About Us and Contact Styling */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+}
+
+.contact-info {
+    list-style: none;
+}
+
+.contact-info li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info li span:first-child {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.contact-info li span:last-child {
+    color: var(--text-main);
+}
